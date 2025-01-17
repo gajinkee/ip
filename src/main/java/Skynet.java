@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 public class Skynet {
     public static void main(String[] args) {
@@ -12,10 +14,18 @@ public class Skynet {
         System.out.println(logo + "\nHello! Welcome to skynet\nWhat can i do for you?\n"+ "-".repeat(20));
 
         Scanner scanner = new Scanner(System.in);
-
+        ArrayList<String> logs = new ArrayList<String>();
         String userInput = scanner.nextLine();
+
         while (!userInput.equals("bye")) {
-            System.out.println(userInput);
+            if (userInput.equals("list")) {
+                IntStream.range(0,logs.size())
+                        .forEach(x -> System.out.println( x + ". " + logs.get(x)));
+            }
+            else {
+                logs.add(userInput);
+                System.out.println("Added: " + userInput);
+            }
             userInput = scanner.nextLine();
         }
 
