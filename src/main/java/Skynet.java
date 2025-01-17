@@ -19,6 +19,6 @@ public class Skynet {
             userInput = scanner.nextLine();
         }
 
-        System.out.println("Good Bye!");
+        System.out.println("Good Bye! See you again soon.");
     }
 }
