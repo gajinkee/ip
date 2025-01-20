@@ -74,7 +74,7 @@ public class Skynet {
                     case "deadline":
                         if (eventString.length < 2) {
                             throw new MissingArgumentException("Please specify the task name and deadline." +
-                                    "\nFormat: task name /by time");
+                                    "\nFormat: task taskName /by time");
                         }
                         taskName = eventString[1];
                         date = userInput.split("/by")[1].strip();
@@ -86,7 +86,7 @@ public class Skynet {
                     case "event":
                         if (eventString.length < 2) {
                             throw new MissingArgumentException("Please specify the task name and event duration." +
-                                    "\nFormat: task name /from time /to time");
+                                    "\nFormat: task taskName /from time /to time");
                         }
 
                         taskName = eventString[1];
