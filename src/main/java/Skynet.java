@@ -22,7 +22,7 @@ public class Skynet {
             String[] userInputs = userInput.split("/");
             String[] eventString =  userInputs[0].split(" ");
             String caseType = eventString[0];
-            //System.out.println(caseType);
+
             int index;
             String taskName,date;
             Task newTask;
@@ -53,29 +53,27 @@ public class Skynet {
 
                 case "deadline":
                     taskName = eventString[1];
-                    date = userInput.split("/by")[1];
+                    date = userInput.split("/by")[1].strip();
                     newTask = new DeadLineTask(taskName,date);
                     taskArray.add(newTask);
                     System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
                     break;
 
                 case "event":
-                    taskName = userInputs[1];
-                    String[] duration = (userInput.split("/from")[1]).split("to");
-                    String startDate = duration[0];
-                    String endDate = duration[1];
+                    taskName = eventString[1];
+                    String[] duration = (userInput.split("/from")[1]).split("/to");
+                    String startDate = duration[0].strip();
+                    String endDate = duration[1].strip();
+
                     newTask = new EventTask(taskName,startDate,endDate);
                     taskArray.add(newTask);
                     System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
                     break;
                 default:
-                    //taskArray.add(new Task(userInput));
                     System.out.println("Sorry I dont understand " + userInput);
             }
-
             userInput = scanner.nextLine();
         }
-
         System.out.println("Good Bye! See you again soon.");
     }
 }

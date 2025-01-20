@@ -12,14 +12,12 @@ public class Task {
         this.name = name;
     }
 
-    public Task markTask() {
+    public void markTask() {
         this.done = true;
-        return this;
     }
 
-    public Task unMarkTask() {
+    public void unMarkTask() {
         this.done = false;
-        return this;
     }
 
     @Override
