@@ -1,7 +1,28 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+                  ______   __                               _
+                .' ____ \ [  |  _                          / |_
+                | (___ \_| | | / ]   _   __  _ .--.  .---.`| |-'
+                 _.____`.  | '' <   [ \ [  ][ `.-. |/ /__\\| |
+                | \____) | | |`\ \   \ '/ /  | | | || \__.,| |,
+                 \______.'[__|  \_][\_:  /  [___||__]'.__.'\__/
+                                    \__.'
 
+Hello! Welcome to skynet
+What can i do for you?
+--------------------
+Added: [T][ ] borrow
+You now have 1 tasks
+Added: [D][ ] return (by: Sunday)
+You now have 2 tasks
+Added: [E][ ] project (from: Mon 2pm to: 4pm)
+You now have 3 tasks
+Nice! Ive marked this task as done:
+[T][X] borrow
+0.[T][X] borrow
+1.[D][ ] return (by: Sunday)
+2.[E][ ] project (from: Mon 2pm to: 4pm)
+OK, Ive marked this task as not done:
+[T][ ] borrow
+0.[T][ ] borrow
+1.[D][ ] return (by: Sunday)
+2.[E][ ] project (from: Mon 2pm to: 4pm)
+Good Bye! See you again soon.

@@ -4,14 +4,24 @@ import java.util.stream.IntStream;
 
 public class Skynet {
     public static void main(String[] args) {
+//        String logo = """
+//                  ______   __                               _   \s
+//                .' ____ \\ [  |  _                          / |_ \s
+//                | (___ \\_| | | / ]   _   __  _ .--.  .---.`| |-'\s
+//                 _.____`.  | '' <   [ \\ [  ][ `.-. |/ /__\\\\| |  \s
+//                | \\____) | | |`\\ \\   \\ '/ /  | | | || \\__.,| |, \s
+//                 \\______.'[__|  \\_][\\_:  /  [___||__]'.__.'\\__/ \s
+//                                    \\__.'                       \s""";
         String logo = """
-                  ______   __                               _   \s
-                .' ____ \\ [  |  _                          / |_ \s
-                | (___ \\_| | | / ]   _   __  _ .--.  .---.`| |-'\s
-                 _.____`.  | '' <   [ \\ [  ][ `.-. |/ /__\\\\| |  \s
-                | \\____) | | |`\\ \\   \\ '/ /  | | | || \\__.,| |, \s
-                 \\______.'[__|  \\_][\\_:  /  [___||__]'.__.'\\__/ \s
-                                    \\__.'                       \s""";
+                  ______   __                               _   
+                .' ____ \\ [  |  _                          / |_ 
+                | (___ \\_| | | / ]   _   __  _ .--.  .---.`| |-'
+                 _.____`.  | '' <   [ \\ [  ][ `.-. |/ /__\\\\| |  
+                | \\____) | | |`\\ \\   \\ '/ /  | | | || \\__.,| |, 
+                 \\______.'[__|  \\_][\\_:  /  [___||__]'.__.'\\__/ 
+                                    \\__.'
+""";
+
         System.out.println(logo + "\nHello! Welcome to skynet\nWhat can i do for you?\n"+ "-".repeat(20));
 
         Scanner scanner = new Scanner(System.in);
@@ -75,5 +85,6 @@ public class Skynet {
             userInput = scanner.nextLine();
         }
         System.out.println("Good Bye! See you again soon.");
+        scanner.close();
     }
 }
