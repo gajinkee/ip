@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
+import java.util.Arrays;
 
 public class Skynet {
     public static void main(String[] args) {
@@ -65,7 +66,8 @@ public class Skynet {
                         if (eventString.length < 2) {
                             throw new MissingArgumentException("Please specify the task name.");
                         }
-                        taskName = eventString[1];
+                        //taskName = eventString[1];
+                        taskName = String.join(" ",Arrays.asList(eventString).subList(1,eventString.length));
                         newTask = new ToDoTask(taskName);
                         taskArray.add(newTask);
                         System.out.printf("Added: %s\nYou now have %s tasks%n", newTask,taskArray.size());
@@ -98,6 +100,17 @@ public class Skynet {
                         taskArray.add(newTask);
                         System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
                         break;
+
+                    case "delete":
+                        if (eventString.length < 2) {
+                            throw new MissingArgumentException("Please specify the task index to delete.");
+                        }
+                        index = Integer.parseInt(eventString[1]);
+                        System.out.println("OK, Ive deleted this task: \n" + taskArray.get(index));
+                        taskArray.remove(index);
+//                        System.out.println("OK, Ive deleted this task as not done:\n" + taskArray.get(index));
+                        break;
+
                     default:
                         System.out.println("Sorry I dont understand: " + userInput);
                 }
