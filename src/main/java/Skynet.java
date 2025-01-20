@@ -17,28 +17,60 @@ public class Skynet {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Task> taskArray = new ArrayList<>();
         String userInput = scanner.nextLine();
-        System.out.println("here?");
+
         while (!userInput.equals("bye")) {
-            String[] userInputs = userInput.split(" ");
+            String[] userInputs = userInput.split("/");
+            String[] eventString =  userInputs[0].split(" ");
+            String caseType = eventString[0];
+            //System.out.println(caseType);
             int index;
-            switch (userInputs[0]){
+            String taskName,date;
+            Task newTask;
+            switch (caseType){
                 case "list":
                     IntStream.range(0,taskArray.size())
                             .forEach(x -> System.out.println( x + "." + taskArray.get(x)));
                     break;
+
                 case "mark":
-                    index = Integer.parseInt(userInputs[1]);
+                    index = Integer.parseInt(eventString[1]);
                     taskArray.get(index).markTask();
                     System.out.println("Nice! Ive marked this task as done:\n" + taskArray.get(index));
                     break;
+
                 case "unmark":
-                    index = Integer.parseInt(userInputs[1]);
+                    index = Integer.parseInt(eventString[1]);
                     taskArray.get(index).unMarkTask();
                     System.out.println("OK, Ive marked this task as not done:\n" + taskArray.get(index));
                     break;
+
+                case "todo":
+                    taskName = eventString[1];
+                    newTask = new ToDoTask(taskName);
+                    taskArray.add(newTask);
+                    System.out.printf("Added: %s\nYou now have %s tasks%n", newTask,taskArray.size());
+                    break;
+
+                case "deadline":
+                    taskName = eventString[1];
+                    date = userInput.split("/by")[1];
+                    newTask = new DeadLineTask(taskName,date);
+                    taskArray.add(newTask);
+                    System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
+                    break;
+
+                case "event":
+                    taskName = userInputs[1];
+                    String[] duration = (userInput.split("/from")[1]).split("to");
+                    String startDate = duration[0];
+                    String endDate = duration[1];
+                    newTask = new EventTask(taskName,startDate,endDate);
+                    taskArray.add(newTask);
+                    System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
+                    break;
                 default:
-                    taskArray.add(new Task(userInput));
-                    System.out.println("Added: " + userInput);
+                    //taskArray.add(new Task(userInput));
+                    System.out.println("Sorry I dont understand " + userInput);
             }
 
             userInput = scanner.nextLine();
