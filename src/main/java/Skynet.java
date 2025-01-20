@@ -29,58 +29,82 @@ public class Skynet {
         String userInput = scanner.nextLine();
 
         while (!userInput.equals("bye")) {
-            String[] userInputs = userInput.split("/");
-            String[] eventString =  userInputs[0].split(" ");
-            String caseType = eventString[0];
+            try{
+                String[] userInputs = userInput.split("/");
+                String[] eventString =  userInputs[0].split(" ");
+                String caseType = eventString[0];
 
-            int index;
-            String taskName,date;
-            Task newTask;
-            switch (caseType){
-                case "list":
-                    IntStream.range(0,taskArray.size())
-                            .forEach(x -> System.out.println( x + "." + taskArray.get(x)));
-                    break;
+                int index;
+                String taskName,date;
+                Task newTask;
+                switch (caseType){
+                    case "list":
+                        IntStream.range(0,taskArray.size())
+                                .forEach(x -> System.out.println( x + "." + taskArray.get(x)));
+                        break;
 
-                case "mark":
-                    index = Integer.parseInt(eventString[1]);
-                    taskArray.get(index).markTask();
-                    System.out.println("Nice! Ive marked this task as done:\n" + taskArray.get(index));
-                    break;
+                    case "mark":
+                        if (eventString.length < 2) {
+                            throw new MissingArgumentException("Please specify the task index to mark.");
+                        }
+                        index = Integer.parseInt(eventString[1]);
+                        taskArray.get(index).markTask();
+                        System.out.println("Nice! Ive marked this task as done:\n" + taskArray.get(index));
+                        break;
 
-                case "unmark":
-                    index = Integer.parseInt(eventString[1]);
-                    taskArray.get(index).unMarkTask();
-                    System.out.println("OK, Ive marked this task as not done:\n" + taskArray.get(index));
-                    break;
+                    case "unmark":
+                        if (eventString.length < 2) {
+                            throw new MissingArgumentException("Please specify the task index to unmark.");
+                        }
+                        index = Integer.parseInt(eventString[1]);
+                        taskArray.get(index).unMarkTask();
+                        System.out.println("OK, Ive marked this task as not done:\n" + taskArray.get(index));
+                        break;
 
-                case "todo":
-                    taskName = eventString[1];
-                    newTask = new ToDoTask(taskName);
-                    taskArray.add(newTask);
-                    System.out.printf("Added: %s\nYou now have %s tasks%n", newTask,taskArray.size());
-                    break;
+                    case "todo":
+                        if (eventString.length < 2) {
+                            throw new MissingArgumentException("Please specify the task name.");
+                        }
+                        taskName = eventString[1];
+                        newTask = new ToDoTask(taskName);
+                        taskArray.add(newTask);
+                        System.out.printf("Added: %s\nYou now have %s tasks%n", newTask,taskArray.size());
+                        break;
 
-                case "deadline":
-                    taskName = eventString[1];
-                    date = userInput.split("/by")[1].strip();
-                    newTask = new DeadLineTask(taskName,date);
-                    taskArray.add(newTask);
-                    System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
-                    break;
+                    case "deadline":
+                        if (eventString.length < 2) {
+                            throw new MissingArgumentException("Please specify the task name and deadline." +
+                                    "\nFormat: task name /by time");
+                        }
+                        taskName = eventString[1];
+                        date = userInput.split("/by")[1].strip();
+                        newTask = new DeadLineTask(taskName,date);
+                        taskArray.add(newTask);
+                        System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
+                        break;
 
-                case "event":
-                    taskName = eventString[1];
-                    String[] duration = (userInput.split("/from")[1]).split("/to");
-                    String startDate = duration[0].strip();
-                    String endDate = duration[1].strip();
+                    case "event":
+                        if (eventString.length < 2) {
+                            throw new MissingArgumentException("Please specify the task name and event duration." +
+                                    "\nFormat: task name /from time /to time");
+                        }
 
-                    newTask = new EventTask(taskName,startDate,endDate);
-                    taskArray.add(newTask);
-                    System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
-                    break;
-                default:
-                    System.out.println("Sorry I dont understand " + userInput);
+                        taskName = eventString[1];
+                        String[] duration = (userInput.split("/from")[1]).split("/to");
+                        String startDate = duration[0].strip();
+                        String endDate = duration[1].strip();
+
+                        newTask = new EventTask(taskName,startDate,endDate);
+                        taskArray.add(newTask);
+                        System.out.printf("Added: %s\nYou now have %s tasks%n",newTask,taskArray.size());
+                        break;
+                    default:
+                        System.out.println("Sorry I dont understand: " + userInput);
+                }
+            } catch (MissingArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
             }
             userInput = scanner.nextLine();
         }
