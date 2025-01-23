@@ -1,4 +1,4 @@
-public class DeadLineTask extends Task{
+public class DeadLineTask extends Task {
     private final String deadline;
 
     DeadLineTask(String name, String deadline) {
@@ -7,7 +7,7 @@ public class DeadLineTask extends Task{
     }
 
     @Override
-    public String toString(){
-        return "[D]" + super.toString() + String.format(" (by: %s)",deadline);
+    public String toString() {
+        return "[D]" + super.toString() + String.format(" (by: %s)", deadline);
     }
 }

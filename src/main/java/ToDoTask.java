@@ -1,4 +1,4 @@
-public class ToDoTask extends Task{
+public class ToDoTask extends Task {
 
     ToDoTask(String name) {
         super(name);

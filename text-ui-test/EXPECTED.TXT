@@ -9,20 +9,24 @@
 Hello! Welcome to skynet
 What can i do for you?
 --------------------
-Added: [T][ ] borrow
+Added: [T][ ] borrow book
 You now have 1 tasks
-Added: [D][ ] return (by: Sunday)
+Added: [D][ ] return book (by: Sunday)
 You now have 2 tasks
-Added: [E][ ] project (from: Mon 2pm to: 4pm)
+Added: [E][ ] project meeting (from: Mon 2pm to: 4pm)
 You now have 3 tasks
 Nice! Ive marked this task as done:
-[T][X] borrow
-0.[T][X] borrow
-1.[D][ ] return (by: Sunday)
-2.[E][ ] project (from: Mon 2pm to: 4pm)
+[T][X] borrow book
+0.[T][X] borrow book
+1.[D][ ] return book (by: Sunday)
+2.[E][ ] project meeting (from: Mon 2pm to: 4pm)
 OK, Ive marked this task as not done:
-[T][ ] borrow
-0.[T][ ] borrow
-1.[D][ ] return (by: Sunday)
-2.[E][ ] project (from: Mon 2pm to: 4pm)
+[T][ ] borrow book
+0.[T][ ] borrow book
+1.[D][ ] return book (by: Sunday)
+2.[E][ ] project meeting (from: Mon 2pm to: 4pm)
+OK, Ive deleted this task:
+[D][ ] return book (by: Sunday)
+0.[T][ ] borrow book
+1.[E][ ] project meeting (from: Mon 2pm to: 4pm)
 Good Bye! See you again soon.

@@ -22,7 +22,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "[" + (this.done? "X" : " ")  + "] " +this.name;
+        return "[" + (this.done ? "X" : " ") + "] " + this.name;
     }
 
 }
