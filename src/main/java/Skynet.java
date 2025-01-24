@@ -17,26 +17,33 @@ public class Skynet {
 
         System.out.println(logo + "\nHello! Welcome to skynet\nWhat can i do for you?\n" + "-".repeat(20));
 
-        Scanner scanner = new Scanner(System.in);
         ArrayList<Task> taskArray = new ArrayList<>();
-        String userInput = scanner.nextLine();
+        handleCommand(taskArray);
 
-        while (!userInput.equals("bye")) {
+
+    }
+
+    private static void handleCommand(ArrayList<Task> taskArray) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String inputLine = scanner.nextLine();
+            if(inputLine.equals("bye")) {
+                break;
+            }
             try {
-                String[] userInputs = userInput.split("/");
-                String[] eventString = userInputs[0].split(" ");
-                String caseType = eventString[0];
+                String[] eventString = inputLine.split("/")[0].split(" ");
+                UserInput caseType = UserInput.fromString(eventString[0]);
 
                 int index;
                 String taskName, date;
                 Task newTask;
                 switch (caseType) {
-                case "list":
+                case LIST:
                     IntStream.range(0, taskArray.size())
                             .forEach(x -> System.out.println(x + "." + taskArray.get(x)));
                     break;
 
-                case "mark":
+                case MARK:
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the task index to mark.");
                     }
@@ -45,7 +52,7 @@ public class Skynet {
                     System.out.println("Nice! Ive marked this task as done:\n" + taskArray.get(index));
                     break;
 
-                case "unmark":
+                case UNMARK:
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the task index to unmark.");
                     }
@@ -54,7 +61,7 @@ public class Skynet {
                     System.out.println("OK, Ive marked this task as not done:\n" + taskArray.get(index));
                     break;
 
-                case "todo":
+                case TODO:
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the task name.");
                     }
@@ -65,26 +72,26 @@ public class Skynet {
                     System.out.printf("Added: %s\nYou now have %s tasks%n", newTask, taskArray.size());
                     break;
 
-                case "deadline":
+                case DEADLINE:
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the task name and deadline." +
                                 "\nFormat: task taskName /by time");
                     }
                     taskName = String.join(" ", Arrays.asList(eventString).subList(1, eventString.length));
-                    date = userInput.split("/by")[1].strip();
+                    date = inputLine.split("/by")[1].strip();
                     newTask = new DeadLineTask(taskName, date);
                     taskArray.add(newTask);
                     System.out.printf("Added: %s\nYou now have %s tasks%n", newTask, taskArray.size());
                     break;
 
-                case "event":
+                case EVENT:
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the task name and event duration." +
                                 "\nFormat: task taskName /from time /to time");
                     }
 
                     taskName = String.join(" ", Arrays.asList(eventString).subList(1, eventString.length));
-                    String[] duration = (userInput.split("/from")[1]).split("/to");
+                    String[] duration = (inputLine.split("/from")[1]).split("/to");
                     String startDate = duration[0].strip();
                     String endDate = duration[1].strip();
 
@@ -93,7 +100,7 @@ public class Skynet {
                     System.out.printf("Added: %s\nYou now have %s tasks%n", newTask, taskArray.size());
                     break;
 
-                case "delete":
+                case DELETE:
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the task index to delete.");
                     }
@@ -103,16 +110,16 @@ public class Skynet {
                     break;
 
                 default:
-                    System.out.println("Sorry I dont understand: " + userInput);
+                    System.out.println("Sorry I dont understand: " + inputLine);
                 }
             } catch (MissingArgumentException e) {
-                System.out.println("Error: " + e.getMessage());
+                System.out.println("Error:\n" + e.getMessage());
             } catch (Exception e) {
-                System.out.println("An unexpected error occurred: " + e.getMessage());
+                System.out.println("Command Error:\n" + e.getMessage());
             }
-            userInput = scanner.nextLine();
         }
         System.out.println("Good Bye! See you again soon.");
         scanner.close();
     }
+
 }
