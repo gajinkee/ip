@@ -1,3 +1,5 @@
+package task;
+
 public class Task {
     private boolean done;
     private final String name;
@@ -18,6 +20,10 @@ public class Task {
 
     public void unMarkTask() {
         this.done = false;
+    }
+
+    public boolean isDone() {
+        return this.done;
     }
 
     @Override

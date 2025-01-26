@@ -1,7 +1,9 @@
+package task;
+
 public class DeadLineTask extends Task {
     private final String deadline;
 
-    DeadLineTask(String name, String deadline) {
+    public DeadLineTask(String name, String deadline) {
         super(name);
         this.deadline = deadline;
     }
