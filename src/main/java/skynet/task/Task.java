@@ -1,4 +1,4 @@
-package task;
+package skynet.task;
 
 public class Task {
     private boolean done;

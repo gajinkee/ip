@@ -1,9 +1,9 @@
-package storage;
+package skynet.storage;
 
-import task.DeadLineTask;
-import task.EventTask;
-import task.Task;
-import task.ToDoTask;
+import skynet.task.DeadLineTask;
+import skynet.task.EventTask;
+import skynet.task.Task;
+import skynet.task.ToDoTask;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class StorageHandler {
+public class Storage {
 
     public static ArrayList<Task> load(String fileName) throws IOException{
 
