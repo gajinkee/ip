@@ -6,6 +6,10 @@ if not exist ..\bin mkdir ..\bin
 REM delete output from previous run
 if exist ACTUAL.TXT del ACTUAL.TXT
 
+REM delete data if its there
+echo Current directory: %cd%
+if exist data.txt del data.txt
+
 REM compile the code into the bin folder
 javac  -cp src\main\java -Xlint:none -d ..\bin src\main\java\*.java
 IF ERRORLEVEL 1 (
