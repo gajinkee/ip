@@ -1,4 +1,4 @@
-package task;
+package skynet.task;
 
 public class ToDoTask extends Task {
 

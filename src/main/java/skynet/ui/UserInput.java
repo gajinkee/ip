@@ -1,3 +1,5 @@
+package skynet.ui;
+
 import java.util.Arrays;
 
 public enum UserInput {

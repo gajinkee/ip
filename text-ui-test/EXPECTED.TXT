@@ -15,17 +15,17 @@ Added: [D][ ] return book (by: Sunday)
 You now have 2 tasks
 Added: [E][ ] project meeting (from: Mon 2pm to: 4pm)
 You now have 3 tasks
-Nice! Ive marked this task as done:
+Nice! Ive marked this skynet.task as done:
 [T][X] borrow book
 0.[T][X] borrow book
 1.[D][ ] return book (by: Sunday)
 2.[E][ ] project meeting (from: Mon 2pm to: 4pm)
-OK, Ive marked this task as not done:
+OK, Ive marked this skynet.task as not done:
 [T][ ] borrow book
 0.[T][ ] borrow book
 1.[D][ ] return book (by: Sunday)
 2.[E][ ] project meeting (from: Mon 2pm to: 4pm)
-OK, Ive deleted this task:
+OK, Ive deleted this skynet.task:
 [D][ ] return book (by: Sunday)
 0.[T][ ] borrow book
 1.[E][ ] project meeting (from: Mon 2pm to: 4pm)

@@ -1,6 +1,8 @@
+package skynet.exceptions;
+
 public class MissingArgumentException extends Exception {
 
-    MissingArgumentException(String m) {
+   public  MissingArgumentException(String m) {
         super(m);
     }
 }
