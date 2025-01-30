@@ -62,6 +62,15 @@ public class TaskList {
         return this.tasks;
     }
 
+    public TaskList findRelatedTasks(String input) {
+        ArrayList<Task> results = new ArrayList<Task>( this.tasks
+                .stream()
+                .filter(task -> task.getName().toLowerCase().contains(input))
+                .toList());
+
+        return new TaskList(results);
+    }
+
     @Override
     public String toString() {
         return  IntStream.range(0, this.tasks.size())

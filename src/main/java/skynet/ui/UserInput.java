@@ -3,7 +3,7 @@ package skynet.ui;
 import java.util.Arrays;
 
 public enum UserInput {
-    LIST, MARK, UNMARK, TODO, DEADLINE, EVENT,DELETE;
+    LIST, MARK, UNMARK, TODO, DEADLINE, EVENT, DELETE, FIND;
 
     public static UserInput fromString(String input) {
         return Arrays.stream(values())
