@@ -16,7 +16,8 @@ public class DeadLineTask extends Task {
         LocalDateTime parsedDateTime;
         try {
             // 2/12/2019 1800 as 2nd of December 2019, 6pm,
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy HHmm");
+            DateTimeFormatter formatter = DateTimeFormatter
+                    .ofPattern("d/MM/yyyy HHmm");
             parsedDateTime = LocalDateTime.parse(deadline,formatter);
         } catch (DateTimeParseException e) {
             parsedDateTime = null;
@@ -36,6 +37,8 @@ public class DeadLineTask extends Task {
         String datetime = this.deadlineDateTimeFormat == null ?
                 this.deadlineStringFormat :
                 this.getFormattedDateTime();
-        return "[D]" + super.toString() + String.format(" (by: %s)", datetime);
+        return "[D]"
+                + super.toString()
+                + String.format(" (by: %s)", datetime);
     }
 }

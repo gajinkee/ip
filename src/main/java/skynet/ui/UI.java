@@ -32,15 +32,19 @@ public class UI {
                                                         \\__.'
                     """;
 
-        System.out.println(logo + "\nHello! Welcome to skynet\nWhat can i do for you?\n" + "-".repeat(20));
+        System.out.println(logo
+                + "\nHello! Welcome to skynet\nWhat can i do for you?\n"
+                + "-".repeat(20));
     }
 
     public void printMark(TaskList taskArray, int index) {
-        System.out.println("Nice! Ive marked this skynet.task as done:\n" + taskArray.get(index));
+        System.out.println("Nice! Ive marked this skynet.task as done:\n"
+                + taskArray.get(index));
     }
 
     public void printUnMark(TaskList taskArray, int index) {
-        System.out.println("OK, Ive marked this skynet.task as not done:\n" + taskArray.get(index));
+        System.out.println("OK, Ive marked this skynet.task as not done:\n"
+                + taskArray.get(index));
     }
 
     public void printTaskAdded(Task newTask, int numOfTasks) {
@@ -48,7 +52,8 @@ public class UI {
     }
 
     public void printDeletedTask(Task task) {
-        System.out.println("OK, Ive deleted this skynet.task:\n" + task);
+        System.out.println("OK, Ive deleted this skynet.task:\n"
+                + task);
     }
 
     public void printGoodBye() {
@@ -56,7 +61,8 @@ public class UI {
     }
 
     public void printFailureToParseInput(String inputLine) {
-        System.out.println("Sorry I dont understand: " + inputLine);
+        System.out.println("Sorry I dont understand: "
+                + inputLine);
     }
 
     public void showError(String errorMessage) {
