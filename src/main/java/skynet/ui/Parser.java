@@ -11,7 +11,7 @@ import skynet.exceptions.MissingArgumentException;
 
 
 public class Parser {
-    public static void handleCommand(TaskList taskArray, UI ui) {
+    public static void handleCommand(TaskList taskList, UI ui) {
         while (true) {
             String inputLine = ui.scanNextLine();
             if(inputLine.equals("bye")) {
@@ -26,7 +26,7 @@ public class Parser {
                 Task newTask;
                 switch (caseType) {
                 case LIST:
-                    System.out.println(taskArray.toString());
+                    System.out.println(taskList.toString());
                     break;
 
                 case MARK:
@@ -34,8 +34,8 @@ public class Parser {
                         throw new MissingArgumentException("Please specify the skynet.task index to mark.");
                     }
                     index = Integer.parseInt(eventString[1]);
-                    taskArray.get(index).markTask();
-                    ui.printMark(taskArray,index);
+                    taskList.get(index).markTask();
+                    ui.printMark(taskList,index);
                     break;
 
                 case UNMARK:
@@ -43,8 +43,8 @@ public class Parser {
                         throw new MissingArgumentException("Please specify the skynet.task index to unmark.");
                     }
                     index = Integer.parseInt(eventString[1]);
-                    taskArray.get(index).unMarkTask();
-                    ui.printUnMark(taskArray,index);
+                    taskList.get(index).unMarkTask();
+                    ui.printUnMark(taskList,index);
                     break;
 
                 case TODO:
@@ -53,8 +53,8 @@ public class Parser {
                     }
                     taskName = String.join(" ", Arrays.asList(eventString).subList(1, eventString.length));
                     newTask = new ToDoTask(taskName);
-                    taskArray.add(newTask);
-                    ui.printTaskAdded(newTask, taskArray.size());
+                    taskList.add(newTask);
+                    ui.printTaskAdded(newTask, taskList.size());
                     break;
 
                 case DEADLINE:
@@ -65,8 +65,8 @@ public class Parser {
                     taskName = String.join(" ", Arrays.asList(eventString).subList(1, eventString.length));
                     date = inputLine.split("/by")[1].strip();
                     newTask = new DeadLineTask(taskName, date);
-                    taskArray.add(newTask);
-                    ui.printTaskAdded(newTask, taskArray.size());
+                    taskList.add(newTask);
+                    ui.printTaskAdded(newTask, taskList.size());
                     break;
 
                 case EVENT:
@@ -88,8 +88,8 @@ public class Parser {
                     String endDate = duration[1].strip();
 
                     newTask = new EventTask(taskName, startDate, endDate);
-                    taskArray.add(newTask);
-                    ui.printTaskAdded(newTask, taskArray.size());
+                    taskList.add(newTask);
+                    ui.printTaskAdded(newTask, taskList.size());
                     break;
 
                 case DELETE:
@@ -97,8 +97,17 @@ public class Parser {
                         throw new MissingArgumentException("Please specify the skynet.task index to delete.");
                     }
                     index = Integer.parseInt(eventString[1]);
-                    ui.printDeletedTask(taskArray.get(index));
-                    taskArray.remove(index);
+                    ui.printDeletedTask(taskList.get(index));
+                    taskList.remove(index);
+                    break;
+
+                case FIND:
+                    if (eventString.length < 2) {
+                        throw new MissingArgumentException("Please specify the skynet.task index to delete.");
+                    }
+                    String input = eventString[1];
+                    TaskList results = taskList.findRelatedTasks(input);
+                    System.out.println(results.toString());
                     break;
 
                 default:
