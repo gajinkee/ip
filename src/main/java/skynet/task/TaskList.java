@@ -7,30 +7,57 @@ public class TaskList {
 
     private final ArrayList<Task> tasks;
 
+    /**
+     * Initialise task list with an array of tasks.
+     * @param arr Array of tasks.
+     */
     public TaskList(ArrayList<Task> arr) {
-        this.tasks = new ArrayList<Task>(arr);
+        this.tasks = new ArrayList<>(arr);
     }
 
+    /**
+     * Initialise empty task list.
+     */
     public TaskList() {
         this.tasks = new ArrayList<>();
     }
 
+    /**
+     * Add task to task list.
+     * @param task New task to add.
+     */
     public void add(Task task) {
         this.tasks.add(task);
     }
 
-    public void remove(int i) {
-        this.tasks.remove(i);
+    /**
+     * Remove task at the given index.
+     * @param index index of task to remove
+     */
+    public void remove(int index) {
+        this.tasks.remove(index);
     }
 
-    public Task get(int i) {
-        return this.tasks.get(i);
+    /**
+     * Get task at the given index.
+     * @param index index of task to get
+     */
+    public Task get(int index) {
+        return this.tasks.get(index);
     }
 
+    /**
+     * Find size of task list.
+     * @return Int for the size of task list.
+     */
     public int size() {
         return this.tasks.size();
     }
 
+    /**
+     * Gets the whole task list
+     * @return ArrayList<Task> of the task list is returned.
+     */
     public ArrayList<Task> getTasks() {
         return this.tasks;
     }

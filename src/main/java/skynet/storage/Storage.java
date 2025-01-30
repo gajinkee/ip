@@ -11,8 +11,17 @@ import java.util.ArrayList;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Class that handles save and load of tasks in a save file locally.
+ */
 public class Storage {
 
+    /**
+     *
+     * @param fileName filename of save file.
+     * @return ArrayList<Task> of tasked loaded from save file.
+     * @throws IOException If read or write operations for save file error.
+     */
     public static ArrayList<Task> load(String fileName) throws IOException{
 
         ArrayList<Task> taskArray = new ArrayList<>();
@@ -82,6 +91,12 @@ public class Storage {
         return task;
     }
 
+    /**
+     * Saves tasklist to a local file
+     * @param fileName Filename to save to locally.
+     * @param taskArray Array of tasks to save.
+     * @throws IOException If read and write of file has issues.
+     */
     public static void save(String fileName, ArrayList<Task> taskArray) throws IOException {
         ArrayList<String> lines = new ArrayList<>();
 

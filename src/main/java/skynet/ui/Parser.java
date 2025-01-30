@@ -9,8 +9,17 @@ import skynet.task.TaskList;
 import java.util.Arrays;
 import skynet.exceptions.MissingArgumentException;
 
-
+/**
+ * Parser for handling and understanding user input
+ */
 public class Parser {
+
+    /**
+     * Handles user input
+     *
+     * @param taskArray array of tasks used
+     * @param ui The interface for input and output
+     */
     public static void handleCommand(TaskList taskArray, UI ui) {
         while (true) {
             String inputLine = ui.scanNextLine();
