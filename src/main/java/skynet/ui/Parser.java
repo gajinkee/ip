@@ -1,4 +1,4 @@
-package skynet;
+package skynet.ui;
 
 import skynet.task.DeadLineTask;
 import skynet.task.EventTask;
@@ -8,8 +8,6 @@ import skynet.task.TaskList;
 
 import java.util.Arrays;
 import skynet.exceptions.MissingArgumentException;
-import skynet.ui.UI;
-import skynet.ui.UserInput;
 
 
 public class Parser {

@@ -2,6 +2,7 @@ package skynet;
 
 import skynet.storage.Storage;
 import skynet.task.TaskList;
+import skynet.ui.Parser;
 import skynet.ui.UI;
 
 public class Skynet {
