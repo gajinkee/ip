@@ -3,6 +3,9 @@ package skynet.task;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 
+/**
+ * List of Tasks.
+ */
 public class TaskList {
 
     private final ArrayList<Task> tasks;
@@ -48,22 +51,27 @@ public class TaskList {
 
     /**
      * Find size of task list.
-     * @return Int for the size of task list.
+     * @return int for the size of task list.
      */
     public int size() {
         return this.tasks.size();
     }
 
     /**
-     * Gets the whole task list
-     * @return ArrayList<Task> of the task list is returned.
+     * Gets the whole task list.
+     * @return ArrayList<> of the task list is returned.
      */
     public ArrayList<Task> getTasks() {
         return this.tasks;
     }
 
+    /**
+     * Find tasks related to the input string.
+     * @param input String to find related tasks in the list.
+     * @return TaskList of related Tasks
+     */
     public TaskList findRelatedTasks(String input) {
-        ArrayList<Task> results = new ArrayList<Task>( this.tasks
+        ArrayList<Task> results = new ArrayList<Task>(this.tasks
                 .stream()
                 .filter(task -> task.getName().toLowerCase().contains(input))
                 .toList());
@@ -73,8 +81,8 @@ public class TaskList {
 
     @Override
     public String toString() {
-        return  IntStream.range(0, this.tasks.size())
+        return IntStream.range(0, this.tasks.size())
                 .mapToObj(x -> x + "." + this.tasks.get(x))
-                .reduce("", (x,y) -> x+y+"\n").strip();
+                .reduce("", (x, y) -> x + y + "\n").strip();
     }
 }

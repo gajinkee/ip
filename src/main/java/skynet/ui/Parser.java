@@ -1,13 +1,13 @@
 package skynet.ui;
 
+import java.util.Arrays;
+
+import skynet.exceptions.MissingArgumentException;
 import skynet.task.DeadLineTask;
 import skynet.task.EventTask;
 import skynet.task.Task;
-import skynet.task.ToDoTask;
 import skynet.task.TaskList;
-
-import java.util.Arrays;
-import skynet.exceptions.MissingArgumentException;
+import skynet.task.ToDoTask;
 
 /**
  * Parser for handling and understanding user input
@@ -17,21 +17,21 @@ public class Parser {
     /**
      * Handles user input
      *
-     * @param taskArray array of tasks used
-     * @param ui The interface for input and output
+     * @param taskList array of tasks used
+     * @param ui       The interface for input and output
      */
     public static void handleCommand(TaskList taskList, UI ui) {
         while (true) {
             String inputLine = ui.scanNextLine();
-            if(inputLine.equals("bye")) {
+            if (inputLine.equals("bye")) {
                 break;
             }
             try {
                 String[] eventString = inputLine.split("/")[0].split(" ");
                 UserInput caseType = UserInput.fromString(eventString[0]);
 
-                int index;
-                String taskName, date;
+                String taskName;
+                String date;
                 Task newTask;
                 switch (caseType) {
                 case LIST:
@@ -42,18 +42,18 @@ public class Parser {
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the skynet.task index to mark.");
                     }
-                    index = Integer.parseInt(eventString[1]);
-                    taskList.get(index).markTask();
-                    ui.printMark(taskList,index);
+                    int indexToMark = Integer.parseInt(eventString[1]);
+                    taskList.get(indexToMark).markTask();
+                    ui.printMark(taskList, indexToMark);
                     break;
 
                 case UNMARK:
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the skynet.task index to unmark.");
                     }
-                    index = Integer.parseInt(eventString[1]);
-                    taskList.get(index).unMarkTask();
-                    ui.printUnMark(taskList,index);
+                    int indexToUnmark = Integer.parseInt(eventString[1]);
+                    taskList.get(indexToUnmark).unMarkTask();
+                    ui.printUnMark(taskList, indexToUnmark);
                     break;
 
                 case TODO:
@@ -68,8 +68,8 @@ public class Parser {
 
                 case DEADLINE:
                     if (eventString.length < 2 | inputLine.split("/by").length < 2) {
-                        throw new MissingArgumentException("Please specify the skynet.task name and deadline." +
-                                "\nFormat: skynet.task taskName /by time");
+                        throw new MissingArgumentException("Please specify the skynet.task name and deadline."
+                                + "\nFormat: skynet.task taskName /by time");
                     }
                     taskName = String.join(" ", Arrays.asList(eventString).subList(1, eventString.length));
                     date = inputLine.split("/by")[1].strip();
@@ -79,16 +79,14 @@ public class Parser {
                     break;
 
                 case EVENT:
-                    if (eventString.length < 2 |
-                            inputLine.split("/from").length < 2)
-                            {
-                        throw new MissingArgumentException("Please specify the skynet.task name and event duration." +
-                                "\nFormat: skynet.task taskName /from time /to time");
+                    if (eventString.length < 2 | inputLine.split("/from").length < 2) {
+                        throw new MissingArgumentException("Please specify the skynet.task name and event duration."
+                                + "\nFormat: skynet.task taskName /from time /to time");
                     }
 
-                    if ( inputLine.split("/from")[1].split("/to").length < 2) {
-                    throw new MissingArgumentException("Please specify the skynet.task name and event duration." +
-                            "\nFormat: skynet.task taskName /from time /to time");
+                    if (inputLine.split("/from")[1].split("/to").length < 2) {
+                        throw new MissingArgumentException("Please specify the skynet.task name and event duration."
+                                + "\nFormat: skynet.task taskName /from time /to time");
                     }
 
                     taskName = String.join(" ", Arrays.asList(eventString).subList(1, eventString.length));
@@ -105,9 +103,9 @@ public class Parser {
                     if (eventString.length < 2) {
                         throw new MissingArgumentException("Please specify the skynet.task index to delete.");
                     }
-                    index = Integer.parseInt(eventString[1]);
-                    ui.printDeletedTask(taskList.get(index));
-                    taskList.remove(index);
+                    int indexToDelete = Integer.parseInt(eventString[1]);
+                    ui.printDeletedTask(taskList.get(indexToDelete));
+                    taskList.remove(indexToDelete);
                     break;
 
                 case FIND:

@@ -1,17 +1,19 @@
 package skynet.storage;
 
-import org.junit.jupiter.api.Test;
-import skynet.task.DeadLineTask;
-import skynet.task.EventTask;
-import skynet.task.Task;
-import skynet.task.ToDoTask;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+import skynet.task.DeadLineTask;
+import skynet.task.EventTask;
+import skynet.task.Task;
+import skynet.task.ToDoTask;
 
 
 public class StorageTest {
@@ -19,7 +21,7 @@ public class StorageTest {
     private static final String TEST_FILE = "testFile";
 
     @Test
-    public void load_possibleUserInputs_handledCorrectly(){
+    public void load_possibleUserInputs_handledCorrectly() {
 
         // Arrange - Create test file
         String fileContent = """
@@ -58,7 +60,7 @@ public class StorageTest {
     }
 
     @Test
-    public void save_possibleUserInputs_savedCorrectly(){
+    public void save_possibleUserInputs_savedCorrectly() {
 
         ArrayList<Task> tasks = new ArrayList<>();
 
@@ -80,7 +82,7 @@ public class StorageTest {
 
             Files.delete(path);
         } catch (Exception e) {
-            System.out.println("saving errored out: " + e );
+            System.out.println("saving errors out: " + e);
         }
 
     }

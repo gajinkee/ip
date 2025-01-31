@@ -1,28 +1,27 @@
 package skynet.storage;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+
 import skynet.task.DeadLineTask;
 import skynet.task.EventTask;
 import skynet.task.Task;
 import skynet.task.ToDoTask;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 /**
  * Class that handles save and load of tasks in a save file locally.
  */
 public class Storage {
-
     /**
-     *
+     * Loads the save file from local.
      * @param fileName filename of save file.
-     * @return ArrayList<Task> of tasked loaded from save file.
+     * @return ArrayList<> of tasked loaded from save file.
      * @throws IOException If read or write operations for save file error.
      */
-    public static ArrayList<Task> load(String fileName) throws IOException{
+    public static ArrayList<Task> load(String fileName) throws IOException {
 
         ArrayList<Task> taskArray = new ArrayList<>();
         final Path path = Path.of(fileName);
@@ -52,7 +51,7 @@ public class Storage {
 
         if (type.equals("[E]") | type.equals("[D]")) {
             String details = line.split("\\(")[1];
-            parsedLine.add(details.substring(0,details.length()-1));
+            parsedLine.add(details.substring(0, details.length() - 1));
         }
 
         return parsedLine;
@@ -71,14 +70,14 @@ public class Storage {
         case "[D]":
             taskDetails = parseLine.get(3).strip();
             String deadline = taskDetails.split("by: ")[1].strip();
-            task = new DeadLineTask(taskName,deadline);
+            task = new DeadLineTask(taskName, deadline);
 
             break;
         case "[E]":
             taskDetails = parseLine.get(3).strip();
             String to = taskDetails.split("to: ")[1].strip();
             String from = taskDetails.split("to: ")[0].split("from: ")[1].strip();
-            task = new EventTask(taskName,from,to);
+            task = new EventTask(taskName, from, to);
 
             break;
         default:

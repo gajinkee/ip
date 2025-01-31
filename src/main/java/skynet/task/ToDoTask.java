@@ -1,5 +1,8 @@
 package skynet.task;
 
+/**
+ * Tasks for ToDos.
+ */
 public class ToDoTask extends Task {
 
     public ToDoTask(String name) {

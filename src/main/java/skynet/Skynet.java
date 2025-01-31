@@ -5,6 +5,9 @@ import skynet.task.TaskList;
 import skynet.ui.Parser;
 import skynet.ui.UI;
 
+/**
+ * Main function got Skynet application
+ */
 public class Skynet {
     public static void main(String[] args) {
         try {
@@ -13,7 +16,7 @@ public class Skynet {
             ui.showWelcome();
 
             TaskList taskList = new TaskList(Storage.load("data.txt"));
-            Parser.handleCommand(taskList,ui);
+            Parser.handleCommand(taskList, ui);
             Storage.save("data.txt", taskList.getTasks());
 
         } catch (Exception e) {

@@ -1,19 +1,19 @@
 package skynet.ui;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import skynet.task.DeadLineTask;
 import skynet.task.Task;
 import skynet.task.TaskList;
 import skynet.task.ToDoTask;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 
 public class ParserTest {
 
