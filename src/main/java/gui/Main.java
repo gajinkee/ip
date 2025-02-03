@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import skynet.Skynet;
 
 /**
@@ -15,7 +14,7 @@ import skynet.Skynet;
  */
 public class Main extends Application {
 
-    private Skynet skynet = new Skynet();
+    private final Skynet skynet = new Skynet();
 
     @Override
     public void start(Stage stage) {
@@ -24,7 +23,7 @@ public class Main extends Application {
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
-            fxmlLoader.<MainWindow>getController().setSkynet(skynet);  // inject the Duke instance
+            fxmlLoader.<MainWindow>getController().setSkynet(skynet);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

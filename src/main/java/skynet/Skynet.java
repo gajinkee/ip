@@ -25,16 +25,21 @@ public class Skynet {
 
     }
 
+    /**
+     * Give response for GUI interface.
+     *
+     * @param input User Input.
+     * @return Response string from skynet.
+     */
     public String getResponse(String input) {
 
         String res;
         try {
 
             UI ui = new UI();
-//            ui.showWelcome();
 
             TaskList taskList = new TaskList(Storage.load("data.txt"));
-            res = Parser.handleGUICommand(taskList, ui, input);
+            res = Parser.handleGuiCommand(taskList, ui, input);
             Storage.save("data.txt", taskList.getTasks());
 
         } catch (Exception e) {

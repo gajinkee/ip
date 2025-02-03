@@ -130,7 +130,15 @@ public class Parser {
         ui.closeScanner();
     }
 
-    public static String handleGUICommand(TaskList taskList, UI ui, String inputLine) {
+    /**
+     * Handles user input from the GUI.
+     *
+     * @param taskList  List of tasks.
+     * @param ui        Interface for returning response.
+     * @param inputLine Input given by the user.
+     * @return Response String given by Skynet.
+     */
+    public static String handleGuiCommand(TaskList taskList, UI ui, String inputLine) {
         if (inputLine.equals("bye")) {
             return "EXIT";
         }
