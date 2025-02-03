@@ -36,7 +36,7 @@ public class UI {
     /**
      * Display welcome message
      */
-    public void showWelcome() {
+    public String showWelcome() {
         String logo = """
                                   ______   __                               _
                                 .' ____ \\ [  |  _                          / |_
@@ -47,7 +47,9 @@ public class UI {
                                                     \\__.'
                 """;
 
-        System.out.println(logo + "\nHello! Welcome to skynet\nWhat can i do for you?\n" + "-".repeat(20));
+        String res = logo + "\nHello! Welcome to skynet\nWhat can i do for you?\n" + "-".repeat(20);
+        System.out.println(res);
+        return res;
     }
 
     /**
@@ -56,8 +58,10 @@ public class UI {
      * @param taskArray Array of tasks.
      * @param index     Index to mark.
      */
-    public void printMark(TaskList taskArray, int index) {
-        System.out.println("Nice! Ive marked this skynet.task as done:\n" + taskArray.get(index));
+    public String printMark(TaskList taskArray, int index) {
+        String res = "Nice! Ive marked this skynet.task as done:\n" + taskArray.get(index);
+        System.out.println(res);
+        return res;
     }
 
     /**
@@ -66,8 +70,10 @@ public class UI {
      * @param taskArray Array of tasks.
      * @param index     Index to unmark.
      */
-    public void printUnMark(TaskList taskArray, int index) {
-        System.out.println("OK, Ive marked this skynet.task as not done:\n" + taskArray.get(index));
+    public String printUnMark(TaskList taskArray, int index) {
+        String res = "OK, Ive marked this skynet.task as not done:\n" + taskArray.get(index);
+        System.out.println(res);
+        return res;
     }
 
     /**
@@ -76,8 +82,10 @@ public class UI {
      * @param newTask    Task added.
      * @param numOfTasks Total tasks in list.
      */
-    public void printTaskAdded(Task newTask, int numOfTasks) {
-        System.out.printf("Added: %s\nYou now have %s tasks%n", newTask, numOfTasks);
+    public String printTaskAdded(Task newTask, int numOfTasks) {
+        String res = String.format("Added: %s\nYou now have %s tasks", newTask, numOfTasks);
+        System.out.println(res);
+        return res;
     }
 
     /**
@@ -85,15 +93,19 @@ public class UI {
      *
      * @param task Task deleted.
      */
-    public void printDeletedTask(Task task) {
-        System.out.println("OK, Ive deleted this skynet.task:\n" + task);
+    public String printDeletedTask(Task task) {
+        String res = "OK, Ive deleted this skynet.task:\n" + task;
+        System.out.println(res);
+        return res;
     }
 
     /**
      * Prints goodbye message.
      */
-    public void printGoodBye() {
-        System.out.println("Good Bye! See you again soon.");
+    public String printGoodBye() {
+        String res = "Good Bye! See you again soon.";
+        System.out.println(res);
+        return res;
     }
 
     /**
@@ -101,8 +113,10 @@ public class UI {
      *
      * @param inputLine Input that failed to parse.
      */
-    public void printFailureToParseInput(String inputLine) {
-        System.out.println("Sorry I dont understand: " + inputLine);
+    public String printFailureToParseInput(String inputLine) {
+        String res = "Sorry I dont understand: " + inputLine;
+        System.out.println(res);
+        return res;
     }
 
     /**
@@ -110,7 +124,8 @@ public class UI {
      *
      * @param errorMessage Current error thrown.
      */
-    public void showError(String errorMessage) {
+    public String showError(String errorMessage) {
         System.out.println(errorMessage);
+        return errorMessage;
     }
 }
