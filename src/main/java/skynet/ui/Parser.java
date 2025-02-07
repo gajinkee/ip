@@ -23,6 +23,7 @@ public class Parser {
     public static void handleCommand(TaskList taskList, UI ui) {
         while (true) {
             String inputLine = ui.scanNextLine();
+            assert(inputLine != null);
             if (inputLine.equals("bye")) {
                 break;
             }
@@ -147,6 +148,7 @@ public class Parser {
         try {
             String[] eventString = inputLine.split("/")[0].split(" ");
             UserInput caseType = UserInput.fromString(eventString[0]);
+            assert(caseType != null);
 
             String taskName;
             String date;
@@ -245,6 +247,7 @@ public class Parser {
         } catch (Exception e) {
             return ui.showError("Command Error:\n" + e.getMessage());
         }
+        assert(response != null);
         return response;
     }
 
