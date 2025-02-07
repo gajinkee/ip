@@ -18,6 +18,7 @@ public class Parser {
         try {
             while (true) {
                 String inputLine = ui.scanNextLine();
+                assert(inputLine != null);
                 if (inputLine.equals("bye")) {
                     break;
                 }
@@ -65,7 +66,7 @@ public class Parser {
     private static String commandParse(TaskList taskList, UI ui, String inputLine) throws MissingArgumentException {
         String[] eventString = inputLine.split("/")[0].split(" ");
         Command caseType = Command.fromString(eventString[0]);
-
+        assert(caseType != null);
         return switch (caseType) {
             case LIST -> Command.listCommand(taskList, ui);
             case MARK -> Command.markCommand(taskList, ui, eventString);
