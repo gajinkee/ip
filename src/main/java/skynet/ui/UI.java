@@ -128,4 +128,14 @@ public class UI {
         System.out.println(errorMessage);
         return errorMessage;
     }
+
+    /**
+     * Prints list of tasks.
+     * @param listString String of tasks.
+     * @return String of tasks.
+     */
+    public String printList(String listString) {
+        System.out.println(listString);
+        return listString;
+    }
 }
