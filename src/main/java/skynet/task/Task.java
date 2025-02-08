@@ -34,6 +34,16 @@ public class Task {
         this.done = false;
     }
 
+    /**
+     * comparator for task name. Returns 0 if equal.
+     * @param task Task to compare with.
+     * @return integer 0 if equal else 1 or -1.
+     */
+    public int compareTaskName(Task task) {
+        return this.name
+                .compareToIgnoreCase(task.name);
+    }
+
     @Override
     public String toString() {
         return "["

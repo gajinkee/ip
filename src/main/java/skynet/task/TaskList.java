@@ -30,6 +30,9 @@ public class TaskList {
      * @param task New task to add.
      */
     public void add(Task task) {
+        if (isRepeatedTask(task)) {
+            return;
+        }
         this.tasks.add(task);
     }
 
@@ -71,12 +74,18 @@ public class TaskList {
      * @return TaskList of related Tasks
      */
     public TaskList findRelatedTasks(String input) {
-        ArrayList<Task> results = new ArrayList<Task>(this.tasks
+        ArrayList<Task> results = new ArrayList<>(this.tasks
                 .stream()
                 .filter(task -> task.getName().toLowerCase().contains(input))
                 .toList());
 
         return new TaskList(results);
+    }
+
+    private boolean isRepeatedTask(Task task) {
+        return this.tasks.stream()
+                .map(t -> t.compareTaskName(task))
+                .anyMatch(val -> val == 0);
     }
 
     @Override
