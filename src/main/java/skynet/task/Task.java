@@ -12,11 +12,10 @@ public class Task {
         this.name = name;
     }
 
-    Task(String name, boolean done) {
-        this.done = done;
-        this.name = name;
-    }
-
+    /**
+     * Getter for task name.
+     * @return String of the task name.
+     */
     public String getName() {
         return this.name;
     }
@@ -33,14 +32,6 @@ public class Task {
      */
     public void unMarkTask() {
         this.done = false;
-    }
-
-    /**
-     * Checks if task is done.
-     * @return Returns True if task is done.
-     */
-    public boolean isDone() {
-        return this.done;
     }
 
     @Override
