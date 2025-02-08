@@ -12,11 +12,10 @@ public class Task {
         this.name = name;
     }
 
-    Task(String name, boolean done) {
-        this.done = done;
-        this.name = name;
-    }
-
+    /**
+     * Getter for task name.
+     * @return String of the task name.
+     */
     public String getName() {
         return this.name;
     }
@@ -36,11 +35,13 @@ public class Task {
     }
 
     /**
-     * Checks if task is done.
-     * @return Returns True if task is done.
+     * comparator for task name. Returns 0 if equal.
+     * @param task Task to compare with.
+     * @return integer 0 if equal else 1 or -1.
      */
-    public boolean isDone() {
-        return this.done;
+    public int compareTaskName(Task task) {
+        return this.name
+                .compareToIgnoreCase(task.name);
     }
 
     @Override
