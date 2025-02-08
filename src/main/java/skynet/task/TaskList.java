@@ -82,6 +82,11 @@ public class TaskList {
         return new TaskList(results);
     }
 
+    /**
+     * Checks for repeated tasks in the task list.
+     * @param task Task to check.
+     * @return A boolean True if Task is repeated.
+     */
     private boolean isRepeatedTask(Task task) {
         return this.tasks.stream()
                 .map(t -> t.compareTaskName(task))
