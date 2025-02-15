@@ -1,30 +1,62 @@
-# Duke User Guide
+# Skynet User Guide
 
-// Update the title above to match the actual product name
+[<img src="Ui.png" width="250"/>](Ui.png)
 
-// Product screenshot goes here
-
-// Product intro goes here
+Amazing skynet chatbot to meet all your scheduling needs.
 
 ## Adding deadlines
 
-// Describe the action and its outcome.
+Add deadlines using the deadline command.
 
-// Give examples of usage
+Format: `deadline {task_name} /by {timing}`
 
-Example: `keyword (optional arguments)`
+Example: `deadline meeting /by 2/12/24`
 
-// A description of the expected outcome goes here
+skynet adds your deadline to the list of existing tasks.
 
-```
-expected output
-```
+## Adding ToDo tasks
 
-## Feature ABC
+Add todos using the todo command.
 
-// Feature details
+Format: `todo {task_name}`
+
+Example:
+`todo meeting`
+
+skynet adds your todo to the list of existing tasks.
+
+## Adding event tasks
+
+Add events using the event command.
+
+Format: `event {task_name} /from {timing} /to {timing}`
+
+Example:
+`event meeting /from 2 /to 4`
+
+skynet adds your event to the list of existing tasks.
 
 
-## Feature XYZ
+## List all tasks
 
-// Feature details
+List out all current tasks
+
+Format: `list`
+
+
+## Delete an task 
+
+Delete the specified task
+
+Format: `delete {task_name}`
+
+## Exit the program
+
+Exits the program
+
+Format: `exit`
+
+
+## Saving the data
+Skynet automatically saves all tasks locally after any command.
+
