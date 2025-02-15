@@ -29,8 +29,10 @@ public class MainWindow extends AnchorPane {
 
     private Skynet skynet;
 
-    private final Image userImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/DaUser.png")));
-    private final Image skynetImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/Skynet.png")));
+    private final Image userImage = new Image(Objects.requireNonNull(this.getClass()
+            .getResourceAsStream("/images/DaUser.png")));
+    private final Image skynetImage = new Image(Objects.requireNonNull(this.getClass()
+            .getResourceAsStream("/images/Skynet.png")));
 
     @FXML
     public void initialize() {
