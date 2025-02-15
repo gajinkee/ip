@@ -17,6 +17,7 @@ import skynet.task.ToDoTask;
 public class Storage {
     /**
      * Loads the save file from local.
+     *
      * @param fileName filename of save file.
      * @return ArrayList<> of tasked loaded from save file.
      * @throws IOException If read or write operations for save file error.
@@ -92,7 +93,8 @@ public class Storage {
 
     /**
      * Saves tasklist to a local file
-     * @param fileName Filename to save to locally.
+     *
+     * @param fileName Filename to save locally.
      * @param taskArray Array of tasks to save.
      * @throws IOException If read and write of file has issues.
      */

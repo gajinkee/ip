@@ -29,15 +29,16 @@ public enum Command {
     }
 
     /**
-     * Handler for the Find Command.
+     * Returns related tasks found.
+     *
      * @param taskList list of task.
      * @param eventString string of events.
-     * @return results of the find.
+     * @return related tasks found.
      * @throws MissingArgumentException invalid arguments.
      */
     public static String findCommand(TaskList taskList, String[] eventString) throws MissingArgumentException {
         if (eventString.length < 2) {
-            throw new MissingArgumentException("Please specify the skynet.task index to delete.");
+            throw new MissingArgumentException("Please specify the event to find.");
         }
         String input = eventString[1];
         TaskList results = taskList.findRelatedTasks(input);
@@ -46,11 +47,12 @@ public enum Command {
     }
 
     /**
-     * Handler for the Delete Command.
+     * Deletes tasks specified from task list.
+     *
      * @param taskList list of task.
      * @param ui UI used for input output.
      * @param eventString string of events.
-     * @return results of the delete command.
+     * @return deletion message.
      * @throws MissingArgumentException invalid arguments.
      */
     public static String deleteCommand(TaskList taskList, UI ui, String[] eventString) throws MissingArgumentException {
@@ -65,12 +67,13 @@ public enum Command {
     }
 
     /**
-     * Handler for the Event Command.
+     * Returns response from the Event Command.
+     *
      * @param taskList list of task.
      * @param ui UI used for input output.
      * @param eventString string of events.
      * @param inputLine input by user.
-     * @return results of the event command.
+     * @return response if command successful.
      * @throws MissingArgumentException invalid arguments.
      */
     public static String eventCommand(TaskList taskList, UI ui, String[] eventString, String inputLine)
@@ -90,7 +93,8 @@ public enum Command {
     }
 
     /**
-     * Private method for creating a EventTask.
+     * Returns the new EventTask created from input.
+     *
      * @param eventString string of events.
      * @param inputLine input by user.
      * @return Returns new eventTask.
@@ -104,7 +108,8 @@ public enum Command {
     }
 
     /**
-     * Handler for the Deadline Command.
+     * Returns response for new DeadlineTask created.
+     *
      * @param taskList list of task.
      * @param ui UI used for input output.
      * @param eventString string of events.
@@ -126,7 +131,8 @@ public enum Command {
     }
 
     /**
-     * Handler for the to do Command.
+     * Returns response for new todoTask created.
+     *
      * @param taskList list of task.
      * @param ui UI used for input output.
      * @param eventString string of events.
@@ -144,7 +150,8 @@ public enum Command {
     }
 
     /**
-     * Handler for the unmark Command.
+     * Returns response for unmarked task.
+     *
      * @param taskList list of task.
      * @param ui UI used for input output.
      * @param eventString string of events.
@@ -161,7 +168,8 @@ public enum Command {
     }
 
     /**
-     * Handler for the list Command.
+     * Returns response for listing tasks.
+     *
      * @param taskList list of task.
      * @param ui UI used for input output.
      * @return results of the list command.
@@ -171,7 +179,8 @@ public enum Command {
     }
 
     /**
-     * Handler for the mark Command.
+     * Returns response for marked task.
+     *
      * @param taskList list of task.
      * @param ui UI used for input output.
      * @param eventString string of events.

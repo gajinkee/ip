@@ -13,7 +13,8 @@ public class DeadLineTask extends Task {
     private final LocalDateTime deadlineDateTimeFormat;
 
     /**
-     * Constructor for DeadLineTasks.
+     * Constructs DeadLineTasks.
+     *
      * @param name Name of task.
      * @param deadline Deadline for the task.
      */

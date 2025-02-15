@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.Objects;
+
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -27,8 +29,8 @@ public class MainWindow extends AnchorPane {
 
     private Skynet skynet;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image skynetImage = new Image(this.getClass().getResourceAsStream("/images/Skynet.png"));
+    private final Image userImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/DaUser.png")));
+    private final Image skynetImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/Skynet.png")));
 
     @FXML
     public void initialize() {
@@ -40,10 +42,6 @@ public class MainWindow extends AnchorPane {
         skynet = d;
     }
 
-    /**
-     * Creates two dialog boxes, one echoing user input and the other containing Skynet's reply and then appends them to
-     * the dialog container. Clears the user input after processing.
-     */
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();

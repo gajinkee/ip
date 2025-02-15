@@ -11,7 +11,8 @@ public class TaskList {
     private final ArrayList<Task> tasks;
 
     /**
-     * Initialise task list with an array of tasks.
+     * Initialises task list with an array of tasks.
+     *
      * @param arr Array of tasks.
      */
     public TaskList(ArrayList<Task> arr) {
@@ -19,14 +20,15 @@ public class TaskList {
     }
 
     /**
-     * Initialise empty task list.
+     * Initialises empty task list.
      */
     public TaskList() {
         this.tasks = new ArrayList<>();
     }
 
     /**
-     * Add task to task list.
+     * Adds task to task list.
+     *
      * @param task New task to add.
      */
     public void add(Task task) {
@@ -37,7 +39,8 @@ public class TaskList {
     }
 
     /**
-     * Remove task at the given index.
+     * Removes task at the given index.
+     *
      * @param index index of task to remove
      */
     public void remove(int index) {
@@ -46,6 +49,7 @@ public class TaskList {
 
     /**
      * Get task at the given index.
+     *
      * @param index index of task to get
      */
     public Task get(int index) {
@@ -54,6 +58,7 @@ public class TaskList {
 
     /**
      * Find size of task list.
+     *
      * @return int for the size of task list.
      */
     public int size() {
@@ -62,6 +67,7 @@ public class TaskList {
 
     /**
      * Gets the whole task list.
+     *
      * @return ArrayList<> of the task list is returned.
      */
     public ArrayList<Task> getTasks() {
@@ -69,7 +75,8 @@ public class TaskList {
     }
 
     /**
-     * Find tasks related to the input string.
+     * Finds tasks related to the input string.
+     *
      * @param input String to find related tasks in the list.
      * @return TaskList of related Tasks
      */
@@ -84,6 +91,7 @@ public class TaskList {
 
     /**
      * Checks for repeated tasks in the task list.
+     *
      * @param task Task to check.
      * @return A boolean True if Task is repeated.
      */

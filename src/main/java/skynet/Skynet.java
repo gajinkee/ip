@@ -26,10 +26,10 @@ public class Skynet {
     }
 
     /**
-     * Give response for GUI interface.
+     * Returns response for GUI interface.
      *
      * @param input User Input.
-     * @return Response string from skynet.
+     * @return response.
      */
     public String getResponse(String input) {
 

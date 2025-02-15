@@ -27,14 +27,14 @@ public class UI {
     }
 
     /**
-     * Close the UI scanner
+     * Closes the UI scanner
      */
     public void closeScanner() {
         this.scanner.close();
     }
 
     /**
-     * Display welcome message
+     * Displays welcome message
      */
     public String showWelcome() {
         String logo = """
@@ -77,7 +77,7 @@ public class UI {
     }
 
     /**
-     * Print added task.
+     * Prints added task.
      *
      * @param newTask    Task added.
      * @param numOfTasks Total tasks in list.
@@ -89,7 +89,7 @@ public class UI {
     }
 
     /**
-     * Print deleted task.
+     * Prints deleted task.
      *
      * @param task Task deleted.
      */
@@ -120,7 +120,7 @@ public class UI {
     }
 
     /**
-     * Error messages to show.
+     * Shows error messages.
      *
      * @param errorMessage Current error thrown.
      */
@@ -131,6 +131,7 @@ public class UI {
 
     /**
      * Prints list of tasks.
+     *
      * @param listString String of tasks.
      * @return String of tasks.
      */

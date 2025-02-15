@@ -9,7 +9,8 @@ public class EventTask extends Task {
     private final String end;
 
     /**
-     * Constructor for event tasks.
+     * Constructs for event tasks.
+     *
      * @param name Name of task.
      * @param start Starting time of task.
      * @param end Ending time of tasks.
